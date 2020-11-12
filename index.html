@@ -11,7 +11,16 @@
 <body>
   <main>
     <h1>Vanilla JavaScript App</h1>
+    <p>Loading content from the API: <b id="name">...</b></p>
   </main>
+
+  <script>
+    (async function() {
+      await fetch('/api/getmessage')
+              .then(res => res.text())          // convert to plain text
+              .then(text => document.querySelector('#name').textContent = text)  // then log it out
+    }())
+  </script>
 </body>
 
 </html>
